@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+        <link rel="stylesheet" href="styles.css">
+        <script src="characterSheet.js"></script>
+
+        <title>Ficha do personagem</title>
+    </head>
+    <body>
+        <h1 class="title">Perfil de investigador</h1>
+
+        <!-- Trigger/Open The Modal -->
+
+        <!-- The Modal -->
+        <div id="diceAttributes" class="modal">
+
+            <!-- Modal content -->
+            <div class="modal-content">
+                <img class="modalDice" src="./img/dado.png" alt="Dado">
+                <h2 id="diceNumber"></h2>
+                <p id="diceType"></p>
+            </div>
+
+        </div>
+
+        <div id="lifeModal" class="modal with-input">
+            <div class="modal-content">
+                <h2>MODIFICAR VIDA</h2>
+                <hr>
+                <form action="">
+                    <h3>Atual</h3>
+                    <input type="text" name="lifeCurrent" id="lifeCurrent">
+                    <h3>Máximo</h3>
+                    <input type="text" name="lifeMax" id="lifeMax"><br>
+                    <input type="submit" value="Salvar">
+                </form>
+            </div>
+        </div>
+
+        <div id="sanityModal" class="modal with-input">
+            <div class="modal-content">
+                <h2>MODIFICAR SANIDADE</h2>
+                <hr>
+                <form action="">
+                    <h3>Atual</h3>
+                    <input type="text" name="sanityCurrent" id="sanityCurrent">
+                    <h3>Máximo</h3>
+                    <input type="text" name="sanityMax" id="sanityMax"><br>
+                    <input type="submit" value="Salvar">
+                </form>
+            </div>
+        </div>
+
+        <div id="addWeaponModal" class="modal with-input">
+            <div class="modal-content">
+                <h2>ADICIONAR ARMA</h2>
+                <hr>
+                <form id="addWeaponForm" action="">
+                    <table class="weapons" id="newWeapon">
+                        <tr>
+                            <th>Nome</th>
+                            <th>Tipo</th>
+                            <th>Dano</th>
+                            <th>Num. Atual</th>
+                            <th>Num. Máximo</th>
+                            <th>Ataque</th>
+                            <th>Alcance</th>
+                            <th>Defeito</th>
+                            <th>Área</th>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input type="text" name="weaponName" id="weaponName">
+                            </td>
+                            <td>
+                                <select id="weaponType" name="weaponType">
+                                    <option value="fire">Fogo</option>
+                                    <option value="arch">Arco</option>
+                                    <option value="fight">Briga</option>
+                                </select>
+                            </td>
+                            <td>
+                                <input type="text" name="weaponDamege" id="weaponDamege">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponNumCurrent" id="weaponNumCurrent">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponNumMax" id="weaponNumMax">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponAttack" id="weaponAttack">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponReach" id="weaponReach">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponDefect" id="weaponDefect">
+                            </td>
+                            <td>
+                                <input type="text" name="weaponArea" id="weaponArea">
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" value="Salvar">
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="details border">
+                <h2 class="grid-title">DETALHES PESSOAIS</h2>
+                <hr>
+
+                <div class="inputs">
+                    <h4>Nome</h4>
+                    <input type="text" name="name" id="name" value="">
+                    <h4>Jogador</h4>
+                    <input type="text" name="player" id="player" value="">
+                    <h4>Ocupação</h4>
+                    <input type="text" name="occupation" id="occupation" value="">
+                    <h4>Idade</h4>
+                    <input type="text" name="age" id="age" value="">
+                    <h4>Sexo</h4>
+                    <select id="sex" name="sex">
+                        <option value="male">Masculino</option>
+                        <option value="female">Feminino</option>
+                        <option value="other">Outros</option>
+                    </select>
+                    <h4>Local de nascimento</h4>
+                    <input type="text" name="birthplace" id="birthplace" value="">
+                    <h4>Local de residência</h4>
+                    <input type="text" name="residence" id="residence" value="">
+                </div>
+            </div>
+            <div class="character">
+                <div class="characterHeader">
+                    <img class="characterPhoto" src="./img/character.png" alt="Foto">
+                    <img class="dice" src="./img/dado.png" alt="Dado">
+                </div>
+
+                <div class="bars">
+                    <h4>Vida</h4>
+                    <div class="bar">
+                        <div class="lifeBar"></div>
+                    </div>
+                    <div class="checkboxs">
+                        <form action="">
+                            <input type="checkbox" id="lesion" name="lesion" value="lesion">
+                            <label for="lesion"> Lesão grave</label>
+                            <input type="checkbox" id="injury" name="injury" value="injury">
+                            <label for="injury"> Lesionamento</label>
+                            <input type="checkbox" id="dying" name="dying" value="dying">
+                            <label for="dying"> Morrendo</label>
+                        </form>
+                    </div>
+
+                    <h4>Sanidade</h4>
+                    <div class="sanity">
+
+                        <div class="contentSanityBar">
+                            <div class="sanityBar"></div>
+                        </div>
+                        <img class="sanityDice" src="./img/dado.png" alt="Dado">
+                    </div>
+                    <div class="checkboxs">
+                        <input type="checkbox" id="traumatized" name="traumatized" value="traumatized">
+                        <label for="traumatized"> Traumatizado</label>
+                        <input type="checkbox" id="crazed" name="crazed" value="crazed">
+                        <label for="crazed"> Enlouquecido</label>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <div class="damage">
+                        <h3>Dano extra</h3>
+                        <input type="text" name="damage" id="damage">
+                    </div>
+                    <div class="body">
+                        <h3>Corpo</h3>
+                        <input type="text" name="damage" id="damage">
+                    </div>
+                    <div class="exposure">
+                        <h3>Exposição<br>paranormal</h3>
+                        <input type="text" name="damage" id="damage">
+                    </div>
+                </div>
+            </div>
+            <div class="attributes border">
+                <h2 class="grid-title">ATRIBUTOS</h2>
+                <hr>
+
+                <div class="attributesList">
+                    <div class="attribute">
+                        <a id="btn">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Aparência</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Constituição</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Destreza</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Educação</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Força</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Inteligência</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Poder</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                    <div class="attribute">
+                        <a onclick="alert(1);">
+                            <img class="attributeDice" src="./img/dado.png" alt="Dado">
+                        </a>
+                        <h3>Sorte</h3>
+                        <input type="text" name="attribute" id="attribute">
+                    </div>
+                </div>
+
+            </div>
+            <div class="expertise border">
+                <h2 class="grid-title">PERICIA</h2>
+                <hr>
+            </div>
+            <div class="combat border">
+                <div class="combatHeader">
+                    <h2 class="grid-title">COMBATE</h2>
+                    <button id="addWeapon">&plus;</button>
+                </div>
+                <hr>
+
+                <table class="weapons" id="weapons">
+                    <tr>
+                        <th>Nome</th>
+                        <th>Tipo</th>
+                        <th>Dano</th>
+                        <th>Nun. Atual</th>
+                        <th>Num. Máximo</th>
+                        <th>Ataque</th>
+                        <th>Alcance</th>
+                        <th>Defeito</th>
+                        <th>Área</th>
+                    </tr>
+                    
+                </table>
+
+            </div>
+
+            <div class="expertise2 border">
+                <h2 class="grid-title">PERICIA</h2>
+                <hr>
+            </div>
+        </div>
+    </body>
+</html>

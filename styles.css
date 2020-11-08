@@ -1,0 +1,438 @@
+@import url('https://fonts.googleapis.com/css2?family=Itim&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body {
+    background: #0a0b0c;
+    color: #fff;
+    font-family: 'Itim', sans-serif;
+}
+
+hr {
+    border-top: 1px solid #a2a2a2;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    text-align: center;
+}
+
+h3 {
+    text-align: center;
+}
+
+h4 {
+    text-align: left;
+}
+
+h1.title {
+    margin-top: 40px;
+    margin-bottom: 30px;
+}
+
+h2.grid-title {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.container {
+    display: grid;
+    grid-template-areas: 
+        'details details details character'
+        'attributes attributes attributes expertise'
+        'combat combat combat combat'
+        'expertise2 expertise2 expertise2 expertise2';
+    grid-gap: 30px;
+
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+.border {
+    border-radius: 3px;
+    border: solid;
+    border-width: 0.1px;
+    border-color: #a2a2a2;
+}
+
+.box {
+    background: #000;
+}
+
+.details { 
+    grid-area: details;
+    height: auto;
+}
+.character { 
+    grid-area: character;
+    width: 420px;
+}
+
+.characterHeader {
+    display: flex;
+    justify-content: space-evenly;
+    margin-top: 20px;
+}
+
+.characterPhoto {
+    border: solid;
+    border-width: 2px;
+    border-color: #a2a2a2;
+    border-radius: 50%;
+}
+
+.dice {
+    height: 80px;
+    margin-top: 18px;
+}
+
+.attributes { 
+    grid-area: attributes;
+}
+
+.expertise { 
+    grid-area: expertise;
+    height: 400px;
+}
+
+.expertise2 { 
+    grid-area: expertise2;
+    height: 400px;
+}
+
+
+.combat {
+    grid-area: combat;
+    height: 400px;
+}
+.combat .grid-title {
+    flex: 1;
+}
+
+.combat .combatHeader {
+    display: flex;
+    flex-direction: row;
+    justify-self: center;
+}
+
+.combat .combatHeader button {
+    align-self: center;
+    width: 25px;
+    height: 25px;
+    color: #fff;
+    font-size: 22px;
+    background: #0a0b0c;
+    border: 0.1px solid #a2a2a2;
+    margin-right: 50px;
+}
+
+table.weapons {
+    display: block;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-block-end: auto;
+    border-collapse: collapse;
+    width: 90%;
+}
+
+table.weapons tr:first-child {
+    border-bottom: 2px solid #a2a2a2;
+}
+
+table.weapons tr {
+    border-bottom: 0.1px solid #a2a2a2;
+}
+
+table.weapons th {
+    text-align: center;
+    height: 25px;
+    width: 10%;
+}
+
+table.weapons td {
+    text-align: center;
+    height: 35px;
+}
+
+table.weapons td input {
+    text-align: center;
+    width: 65%;
+    border-bottom: 0.1px solid #a2a2a2;
+}
+
+table.weapons td select {
+    font-size: 16px;
+}
+
+
+table.weapons td button {
+    color: #fff;
+    background: #0a0b0c;
+}
+
+.trashcan {
+    color:white;
+    width: 15px;
+    font-size: 17px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+input {
+    border: none;
+    border-bottom: 2px solid#a2a2a2;
+
+    padding: 3px 4px;
+    margin-bottom: 10px;
+    background-color: #0a0b0c;
+    color: #fff;
+
+    font-family: 'Itim', sans-serif;
+}
+
+input:focus {
+    outline: none;
+}
+
+select {
+    border: none;
+    border-bottom: 2px solid#a2a2a2;
+
+    padding: 3px 4px;
+    margin-bottom: 10px;
+    background-color: #0a0b0c;
+    color: #fff;
+
+    font-family: 'Itim', sans-serif;
+}
+
+select:focus {
+    outline: none;
+}
+
+/* INICIO BARS */
+
+.bars {
+    padding-top: 12px;
+}
+
+.bar {
+    width: 100%;
+    background-color: grey;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+.contentSanityBar {
+    align-self: end;
+    width: 80%;
+    background-color: grey;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+.sanity {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.sanityDice {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+}
+
+.bars .checkboxs {
+    text-align: center;
+}
+
+.bars .checkboxs label {
+    margin-right: 10px;
+}
+
+.lifeBar {
+    width: 50%;
+    height: 25px;
+    background-color: #640101;
+}
+
+.sanityBar {
+    width: 50%;
+    height: 25px;
+    background-color: #011b64;
+}
+
+/* FIM BARS */
+
+.extra {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+
+    margin-top: 10px;
+}
+
+.extra input {
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    align-self: center;
+}
+
+.extra .damage {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.extra .body {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.extra .exposure {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+}
+
+.attributes .attributesList {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.attributes .attribute {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    width: 85px;
+}
+
+.attribute img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 35px;
+}
+
+.attribute a {
+    cursor: pointer;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+.attribute a:hover {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+}
+  
+.attribute input {
+    width: 50%;
+    text-align: center;
+    font-size: 18px;
+    align-self: center;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgb(0 0 0 / 62%); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #0a0b0c;
+  text-align: center;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content h2 {
+    font-size: 30px;
+}
+
+.modal-content p {
+    font-size: 25px;
+}
+
+.modal-content input {
+    font-size: 20px;
+    text-align: center;
+}
+
+.modal-content input[type=submit] {
+    margin-top: 12px;
+    margin-bottom: 0px;
+    border: 1px solid;
+    padding: 1px 20px 1px;
+}
+
+.with-input .modal-content {
+    width: 40%;
+}
+
+.with-input#addWeaponModal .modal-content {
+    width: 70%;
+}
+
+.modalDice {
+    height: 35px;
+    -webkit-transition: -webkit-transform .8s ease-in-out;
+    transition: transform .8s ease-in-out;
+}
+
+@media only screen and (min-width: 1000px) {
+    .container {
+        width: 65%;
+    }
+}
+
+@media only screen and (min-width: 1342px) {
+    .container {
+        width: 62%;
+    }
+}
+
+@media only screen and (min-width: 1500px) {
+    .container {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 1920px) {
+    .container {
+        width: 40%;
+    }
+}
