@@ -240,6 +240,12 @@ select:focus {
     background-color: grey;
     margin-bottom: 10px;
     margin-top: 5px;
+    overflow: hidden;
+}
+
+.barcount {
+    width: 100%;
+    margin-left: 10px;
 }
 
 .contentSanityBar {
@@ -271,25 +277,40 @@ select:focus {
 }
 
 .lifeBar {
-    width: 50%;
+    /* width: 50%; */
     height: 25px;
     background-color: #640101;
+    transition: width 2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 .sanityBar {
     width: 50%;
     height: 25px;
     background-color: #011b64;
+    transition: width 2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* FIM BARS */
 
 .extra {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
+    margin-top: 15px;
+    padding: 1px 15px;
+}
 
-    margin-top: 10px;
+.extra p {
+    text-align: center;
+    font-weight: bold;
 }
 
 .extra input {
@@ -356,27 +377,33 @@ select:focus {
 }
 
 /* The Modal (background) */
+
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgb(0 0 0 / 62%); /* Black w/ opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgb(0 0 0 / 62%);
 }
 
-/* Modal Content/Box */
+.formModal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .modal-content {
   background-color: #0a0b0c;
   text-align: center;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid #888;
-  width: 20%; /* Could be more or less, depending on screen size */
+  width: 20%;
 }
 
 .modal-content h2 {

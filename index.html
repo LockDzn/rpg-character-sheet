@@ -7,19 +7,14 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
         <link rel="stylesheet" href="styles.css">
-        <script src="characterSheet.js"></script>
 
         <title>Ficha do personagem</title>
     </head>
     <body>
         <h1 class="title">Perfil de investigador</h1>
 
-        <!-- Trigger/Open The Modal -->
-
-        <!-- The Modal -->
+        <!-- modal -->
         <div id="diceAttributes" class="modal">
-
-            <!-- Modal content -->
             <div class="modal-content">
                 <img class="modalDice" src="./img/dado.png" alt="Dado">
                 <h2 id="diceNumber"></h2>
@@ -32,11 +27,11 @@
             <div class="modal-content">
                 <h2>MODIFICAR VIDA</h2>
                 <hr>
-                <form action="">
+                <form class="formModal" id="changeLife">
                     <h3>Atual</h3>
-                    <input type="text" name="lifeCurrent" id="lifeCurrent">
+                    <input type="number" name="current" id="lifeCurrent" min="0">
                     <h3>Máximo</h3>
-                    <input type="text" name="lifeMax" id="lifeMax"><br>
+                    <input type="number" name="max" id="lifeMax" min="0">
                     <input type="submit" value="Salvar">
                 </form>
             </div>
@@ -46,11 +41,11 @@
             <div class="modal-content">
                 <h2>MODIFICAR SANIDADE</h2>
                 <hr>
-                <form action="">
+                <form class="formModal" id="changeSanity">
                     <h3>Atual</h3>
-                    <input type="text" name="sanityCurrent" id="sanityCurrent">
+                    <input type="number" name="sanityCurrent" id="sanityCurrent"  min="0">
                     <h3>Máximo</h3>
-                    <input type="text" name="sanityMax" id="sanityMax"><br>
+                    <input type="number" name="sanityMax" id="sanityMax"  min="0">
                     <input type="submit" value="Salvar">
                 </form>
             </div>
@@ -85,7 +80,7 @@
                                 </select>
                             </td>
                             <td>
-                                <input type="text" name="weaponDamege" id="weaponDamege">
+                                <input type="text" name="weaponDamage" id="weaponDamege">
                             </td>
                             <td>
                                 <input type="text" name="weaponNumCurrent" id="weaponNumCurrent">
@@ -147,7 +142,9 @@
                 <div class="bars">
                     <h4>Vida</h4>
                     <div class="bar">
-                        <div class="lifeBar"></div>
+                        <div class="lifeBar" style="width: 0%;">
+                            <p class="barcount" id="lifeCount"></p>
+                        </div>
                     </div>
                     <div class="checkboxs">
                         <form action="">
@@ -162,9 +159,10 @@
 
                     <h4>Sanidade</h4>
                     <div class="sanity">
-
                         <div class="contentSanityBar">
-                            <div class="sanityBar"></div>
+                            <div class="sanityBar" style="width: 0%;">
+                                <p class="barcount" id="sanityCount"></p>
+                            </div>
                         </div>
                         <img class="sanityDice" src="./img/dado.png" alt="Dado">
                     </div>
@@ -178,15 +176,15 @@
 
                 <div class="extra">
                     <div class="damage">
-                        <h3>Dano extra</h3>
+                        <p>Dano extra</p>
                         <input type="text" name="damage" id="damage">
                     </div>
                     <div class="body">
-                        <h3>Corpo</h3>
+                        <p>Corpo</p>
                         <input type="text" name="damage" id="damage">
                     </div>
                     <div class="exposure">
-                        <h3>Exposição<br>paranormal</h3>
+                        <p>Exposição paranormal</p>
                         <input type="text" name="damage" id="damage">
                     </div>
                 </div>
@@ -197,11 +195,11 @@
 
                 <div class="attributesList">
                     <div class="attribute">
-                        <a id="btn">
+                        <a onclick="rollAtribute('appearance')">
                             <img class="attributeDice" src="./img/dado.png" alt="Dado">
                         </a>
                         <h3>Aparência</h3>
-                        <input type="text" name="attribute" id="attribute">
+                        <input type="text" name="appearance" id="appearance" disabled>
                     </div>
                     <div class="attribute">
                         <a onclick="alert(1);">
@@ -288,5 +286,22 @@
                 <hr>
             </div>
         </div>
+
+        <!-- <div class="modal-overlay active">
+            <div class="modal">
+                <h2>MODIFICAR VIDA</h2>
+                <hr>
+                <form id="changeLife">
+                    <span class="modalspan">Atual</span>
+                    <input class="modalinput" type="number" name="current" id="lifeCurrent" min="0">
+
+                    <span class="modalspan">Máximo</span>
+                    <input class="modalinput" type="number" name="max" id="lifeMax" min="0">
+                    <input class="modalbutton" type="submit" value="Salvar">
+                </form>
+            </div>
+        </div> -->
+
+        <script src="characterSheet.js"></script>
     </body>
 </html>
