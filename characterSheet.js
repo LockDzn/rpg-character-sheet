@@ -73,6 +73,10 @@ const data = {
       type: 'Sorte',
       amount: 10,
     },
+    {
+      type: 'Lábia',
+      amounte: 10,
+    },
   ],
 }
 
