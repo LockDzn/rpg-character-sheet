@@ -73,6 +73,14 @@ const data = {
       type: 'Sorte',
       amount: 10,
     },
+    {
+      type: 'Movimento',
+      amount: 10,
+    },
+    {
+      type: '?',
+      amount: 10,
+    },
   ],
 }
 
