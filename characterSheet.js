@@ -43,7 +43,7 @@ const data = {
   attributes: [
     {
       type: 'Aparência',
-      amount: 10,
+      amount:,
     },
     {
       type: 'Constituição',
@@ -59,7 +59,7 @@ const data = {
     },
     {
       type: 'Força',
-      amount: 10,
+      amount: 18,
     },
     {
       type: 'Inteligência',
