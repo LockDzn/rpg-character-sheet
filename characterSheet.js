@@ -296,46 +296,14 @@ function calculateBar(current, max) {
 }
 
 function calcDice(ability, dice) {
-  // Não encontrei uma forma mais fácil, então fiz assim
-
-  const table = [
-    { normal: 20 },
-    { normal: 19, good: 20 },
-    { normal: 18, good: 20 },
-    { normal: 17, good: 19 },
-    { normal: 16, good: 19, extreme: 20 },
-    { normal: 15, good: 18, extreme: 20 },
-    { normal: 14, good: 18, extreme: 20 },
-    { normal: 13, good: 17, extreme: 20 },
-    { normal: 12, good: 17, extreme: 20 },
-    { normal: 11, good: 16, extreme: 20 },
-    { normal: 10, good: 16, extreme: 19 },
-    { normal: 9, good: 16, extreme: 19 },
-    { normal: 8, good: 15, extreme: 19 },
-    { normal: 7, good: 14, extreme: 19 },
-    { normal: 6, good: 14, extreme: 18 },
-    { normal: 5, good: 13, extreme: 18 },
-    { normal: 4, good: 13, extreme: 18 },
-    { normal: 3, good: 12, extreme: 18 },
-    { normal: 2, good: 12, extreme: 18 },
-    { normal: 1, good: 11, extreme: 17 },
-  ]
-
-  const type = table[ability - 1]
-
-  if (type.extreme) {
-    if (dice >= type.extreme) return 'Extremo'
-    if (dice >= type.good) return 'Sucesso Bom'
-    if (dice >= type.normal) return 'Sucesso Normal'
-    if (dice <= type.normal) return 'Fracasso'
-  } else if (type.good) {
-    if (dice >= type.good) return 'Sucesso Bom'
-    if (dice >= type.normal) return 'Sucesso Normal'
-    if (dice <= type.normal) return 'Fracasso'
-  } else if (type.normal) {
-    if (dice >= type.normal) return 'Sucesso Normal'
-    if (dice <= type.normal) return 'Fracasso'
-  }
+  const f5 = Math.floor(ability / 5);
+  const f2 = Math.floor(ability / 2);
+  
+  if (dice > 20 - f5) return 'Sucesso Extremo';
+  else if (dice > 20 - f2) return 'Sucesso Bom';
+  else if (dice > 20 - number) return 'Sucesso Normal';
+  else if (dice == 1) return = 'Desastre';
+  else return 'Fracasso';
 }
 
 function rollDice(dice) {
